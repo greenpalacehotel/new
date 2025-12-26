@@ -1,41 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Book Now – Green Palace</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<header>
-  <h1>Green Palace</h1>
-</header>
-
 <section class="section">
-  <h2>Book Your Stay</h2>
-  <p>Select dates, choose your room, and enjoy a sustainable experience.</p>
+  <h2 class="section-title">Book Your Stay</h2>
 
-  <form>
-    <label>Check-in date:</label><br>
-    <input type="date"><br><br>
+  <div class="booking-box">
+    <div class="booking-grid">
+      <input type="date">
+      <input type="date">
+      <select>
+        <option>Standard Room</option>
+        <option>Family Room</option>
+        <option>Deluxe Suite</option>
+      </select>
+      <select>
+        <option>2 Guests</option>
+        <option>3 Guests</option>
+        <option>4 Guests</option>
+      </select>
+    </div>
 
-    <label>Check-out date:</label><br>
-    <input type="date"><br><br>
-
-    <label>Room Type:</label><br>
-    <select>
-      <option>Standard Double</option>
-      <option>Family Room</option>
-      <option>Deluxe Suite</option>
-    </select><br><br>
-
-    <a class="button" href="#">Confirm Booking</a>
-  </form>
+    <button class="booking-btn">Check Availability</button>
+  </div>
 </section>
-
-<footer>
-  Secure booking – Best price guaranteed
-</footer>
-
-</body>
-</html>
