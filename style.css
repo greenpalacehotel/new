@@ -1,60 +1,63 @@
-:root {
-  --green-dark: #1f3d2b;
-  --green-main: #2f6b45;
-  --green-soft: #e8f1ec;
-  --text-dark: #1c1c1c;
-  --text-light: #6b6b6b;
-  --bg-light: #f9fbfa;
-}
-
+/* ===== RESET ===== */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+/* ===== COLORS ===== */
+:root {
+  --green-dark: #1f3d2b;
+  --green-main: #2f6b45;
+  --green-light: #e8f1ec;
+  --text-dark: #1e1e1e;
+  --text-light: #6f6f6f;
+  --bg-light: #f9fbfa;
+}
+
+/* ===== BODY ===== */
 body {
-  margin: 0;
-  font-family: "Inter", "Segoe UI", sans-serif;
+  font-family: "Segoe UI", Arial, sans-serif;
   background: var(--bg-light);
   color: var(--text-dark);
   line-height: 1.6;
 }
 
-/* ---------- HEADER ---------- */
-
+/* ===== HEADER ===== */
 header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: white;
+  background: #ffffff;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 18px 60px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
 }
 
 .logo {
-  font-weight: 700;
   font-size: 20px;
+  font-weight: 700;
   color: var(--green-dark);
 }
 
 nav a {
   margin-left: 28px;
   text-decoration: none;
+  font-size: 15px;
   font-weight: 500;
   color: var(--text-dark);
 }
 
 nav a.book {
   background: var(--green-main);
-  color: white;
-  padding: 10px 20px;
+  color: #fff;
+  padding: 10px 22px;
   border-radius: 30px;
 }
 
-/* ---------- HERO ---------- */
-
+/* ===== HERO ===== */
 .hero {
   min-height: 90vh;
   background-size: cover;
@@ -71,6 +74,7 @@ nav a.book {
 .hero h1 {
   font-size: 56px;
   margin-bottom: 16px;
+  color: #ffffff;
 }
 
 .hero p {
@@ -81,28 +85,27 @@ nav a.book {
 .hero .cta {
   margin-top: 30px;
   display: inline-block;
-  background: white;
+  background: #ffffff;
   color: var(--green-dark);
-  padding: 14px 32px;
+  padding: 14px 34px;
   border-radius: 40px;
   font-weight: 600;
   text-decoration: none;
 }
 
-/* ---------- SECTIONS ---------- */
-
+/* ===== SECTIONS ===== */
 .section {
   padding: 100px 80px;
 }
 
 .section-title {
   font-size: 38px;
-  margin-bottom: 50px;
   text-align: center;
+  margin-bottom: 60px;
+  color: var(--green-dark);
 }
 
-/* ---------- CARDS ---------- */
-
+/* ===== CARDS ===== */
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -110,15 +113,15 @@ nav a.book {
 }
 
 .card {
-  background: white;
-  border-radius: 18px;
+  background: #ffffff;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.08);
   transition: transform 0.4s ease;
 }
 
 .card:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px);
 }
 
 .card img {
@@ -128,45 +131,47 @@ nav a.book {
 }
 
 .card-content {
-  padding: 25px;
+  padding: 26px;
 }
 
 .card h3 {
-  margin: 0 0 10px;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
 .card p {
+  font-size: 15px;
   color: var(--text-light);
 }
 
-/* ---------- BOOKING ---------- */
-
+/* ===== BOOKING ===== */
 .booking-box {
-  background: white;
+  background: #ffffff;
   padding: 50px;
-  border-radius: 24px;
+  border-radius: 26px;
   max-width: 900px;
   margin: auto;
-  box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+  box-shadow: 0 35px 70px rgba(0,0,0,0.1);
 }
 
 .booking-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
 .booking-grid input,
 .booking-grid select {
-  padding: 14px;
-  border-radius: 12px;
+  padding: 15px;
+  border-radius: 14px;
   border: 1px solid #ddd;
+  font-size: 14px;
 }
 
 .booking-btn {
   margin-top: 30px;
   width: 100%;
-  padding: 16px;
+  padding: 18px;
   border-radius: 40px;
   border: none;
   background: var(--green-main);
@@ -175,10 +180,10 @@ nav a.book {
   cursor: pointer;
 }
 
-/* ---------- FOOTER ---------- */
-
+/* ===== FOOTER ===== */
 footer {
   padding: 40px;
   text-align: center;
+  font-size: 14px;
   color: var(--text-light);
 }
