@@ -11,13 +11,11 @@
 }
 
 body {
-  margin: 0;
-  font-family: "Inter", "Segoe UI", sans-serif;
-  background: var(--bg-light);
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #cfe3c8;
   color: var(--text-dark);
   line-height: 1.6;
 }
-
 /* ---------- HEADER ---------- */
 
 header {
@@ -32,13 +30,15 @@ header {
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
 }
 
-.logo {
-  font-weight: 700;
-  font-size: 20px;
-  color: var(--green-dark);
+.logo img {
+  height: 60px;
+  width: auto;
+  transition: transform 0.3s ease;
 }
 
-nav a {
+.logo img:hover {
+  transform: scale(1.08);
+}nav a {
   margin-left: 28px;
   text-decoration: none;
   font-weight: 500;
