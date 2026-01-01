@@ -1,22 +1,221 @@
-<section class="section">
-  <h2 class="section-title">Book Your Stay</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find Your Stay – Green Palace</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+
+<body>
+
+<section class="section booking-page">
 
   <div class="booking-box">
+
+    <h2 class="booking-title">Find Your Stay</h2>
+
     <div class="booking-grid">
-      <input type="date">
-      <input type="date">
-      <select>
-        <option>Standard Room</option>
-        <option>Family Room</option>
-        <option>Deluxe Suite</option>
-      </select>
-      <select>
-        <option>2 Guests</option>
-        <option>3 Guests</option>
-        <option>4 Guests</option>
-      </select>
+
+      <!-- ROOM TYPE -->
+      <div>
+        <label class="label-with-icon">
+          <span class="icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="10" width="20" height="7"></rect>
+              <path d="M4 10V7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"></path>
+              <line x1="2" y1="17" x2="2" y2="20"></line>
+              <line x1="22" y1="17" x2="22" y2="20"></line>
+            </svg>
+          </span>
+          Room Type
+        </label>
+
+        <select id="roomType">
+          <option value="" selected disabled>Select a room</option>
+          <option value="standard">Standard Room</option>
+          <option value="family">Family Room</option>
+          <option value="deluxe">Deluxe Suite</option>
+        </select>
+
+        <div id="roomInfo" class="info-box"></div>
+      </div>
+
+      <!-- DATE RANGE -->
+      <div>
+        <label class="label-with-icon">
+          <span class="icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="3"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </span>
+          Check-in — Check-out
+        </label>
+
+        <input type="text" id="dateRange" placeholder="Select dates" readonly>
+        <div id="nightInfo" class="info-box"></div>
+      </div>
+
+      <!-- GUESTS (UNCHANGED UI) -->
+      <div class="guests-wrapper">
+
+        <label class="label-with-icon">
+          <span class="icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="4"></circle>
+              <path d="M4 20c0-4 4-6 8-6s8 2 8 6"></path>
+            </svg>
+          </span>
+          Guests
+        </label>
+
+        <div class="guests-input" id="guestsToggle">
+          <span id="guestsSummary">2 adults · 0 children</span>
+        </div>
+
+        <div class="guests-dropdown" id="guestsDropdown">
+
+          <div class="guest-row">
+            <span>Adults</span>
+            <div class="counter">
+              <button data-type="adult" data-action="minus">−</button>
+              <span id="adultCount">2</span>
+              <button data-type="adult" data-action="plus">+</button>
+            </div>
+          </div>
+
+          <div class="guest-row">
+            <span>Children</span>
+            <div class="counter">
+              <button data-type="child" data-action="minus">−</button>
+              <span id="childCount">0</span>
+              <button data-type="child" data-action="plus">+</button>
+            </div>
+          </div>
+
+          <div class="guest-row pets-row">
+            <span>Traveling with pets?</span>
+            <label class="switch">
+              <input type="checkbox">
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <button class="done-btn" id="guestsDone">Done</button>
+        </div>
+
+      </div>
+
     </div>
 
-    <button class="booking-btn">Check Availability</button>
+    <button class="booking-btn">Search</button>
+
+    <p class="booking-note">Secure booking • No payment required now</p>
+
   </div>
+
 </section>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<script>
+/* ---------- ROOM INFO ---------- */
+const roomType = document.getElementById("roomType");
+const roomInfo = document.getElementById("roomInfo");
+
+const roomText = {
+  standard: "Suitable for couples.",
+  family: "Suitable for 2 adults and 2 children.",
+  deluxe: "Suitable for 4 adults and 4 children."
+};
+
+/* ---------- GUEST LIMITS PER ROOM ---------- */
+const limits = {
+  standard: { adults: 2, children: 0 },
+  family: { adults: 2, children: 2 },
+  deluxe: { adults: 4, children: 4 }
+};
+
+/* ---------- DATE ---------- */
+flatpickr("#dateRange", {
+  mode: "range",
+  minDate: "today",
+  showMonths: 2,
+  onChange(d) {
+    if (d.length === 2) {
+      const nights = (d[1] - d[0]) / 86400000;
+      nightInfo.textContent = nights + " nights stay";
+      nightInfo.style.display = "block";
+    }
+  }
+});
+
+/* ---------- GUESTS LOGIC ---------- */
+let adults = 2;
+let children = 0;
+
+const adultCount = document.getElementById("adultCount");
+const childCount = document.getElementById("childCount");
+const summary = document.getElementById("guestsSummary");
+
+let maxAdults = 2;
+let maxChildren = 0;
+
+function updateSummary() {
+  summary.textContent = `${adults} adults · ${children} children`;
+}
+
+roomType.addEventListener("change", () => {
+  const r = roomType.value;
+  roomInfo.textContent = roomText[r];
+  roomInfo.style.display = "block";
+
+  maxAdults = limits[r].adults;
+  maxChildren = limits[r].children;
+
+  if (adults > maxAdults) adults = maxAdults;
+  if (children > maxChildren) children = maxChildren;
+
+  adultCount.textContent = adults;
+  childCount.textContent = children;
+  updateSummary();
+});
+
+document.getElementById("guestsToggle").onclick = () => {
+  guestsDropdown.style.display =
+    guestsDropdown.style.display === "block" ? "none" : "block";
+};
+
+document.querySelectorAll(".counter button").forEach(btn => {
+  btn.onclick = () => {
+    const type = btn.dataset.type;
+    const action = btn.dataset.action;
+
+    if (type === "adult") {
+      if (action === "plus" && adults < maxAdults) adults++;
+      if (action === "minus" && adults > 1) adults--;
+    }
+
+    if (type === "child") {
+      if (action === "plus" && children < maxChildren) children++;
+      if (action === "minus" && children > 0) children--;
+    }
+
+    adultCount.textContent = adults;
+    childCount.textContent = children;
+    updateSummary();
+  };
+});
+
+document.getElementById("guestsDone").onclick = () => {
+  guestsDropdown.style.display = "none";
+};
+</script>
+
+</body>
+</html>
