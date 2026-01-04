@@ -9,7 +9,40 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 </head>
 
+
+
 <body>
+<header>
+  <nav>
+
+    <a href="index.html">
+      <span class="nav-icon icon-home">
+        <!-- HOME ICON -->
+        <svg viewBox="0 0 24 24">
+          <path d="M3 10.5L12 3l9 7.5"></path>
+          <path d="M5 10v9h5v-5h4v5h5v-9"></path>
+        </svg>
+      </span>
+      Home
+    </a>
+
+    <a href="rooms.html">
+      <span class="nav-icon icon-rooms">
+        <!-- ROOM / BED ICON -->
+        <svg viewBox="0 0 24 24">
+          <rect x="2" y="10" width="20" height="7"></rect>
+          <path d="M4 10V7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3"></path>
+        </svg>
+      </span>
+      Rooms
+    </a>
+
+  </nav>
+
+  <div class="logo">
+    <img src="images/logo.png" alt="Green Palace Logo">
+  </div>
+</header>
 
 <section class="section booking-page">
 
@@ -75,7 +108,7 @@
         </label>
 
         <div class="guests-input" id="guestsToggle">
-          <span id="guestsSummary">2 adults · 0 children</span>
+          <span id="guestsSummary">1 adults · 0 children</span>
         </div>
 
         <div class="guests-dropdown" id="guestsDropdown">
@@ -84,7 +117,7 @@
             <span>Adults</span>
             <div class="counter">
               <button data-type="adult" data-action="minus">−</button>
-              <span id="adultCount">2</span>
+              <span id="adultCount">1</span>
               <button data-type="adult" data-action="plus">+</button>
             </div>
           </div>
@@ -142,19 +175,39 @@ const limits = {
 };
 
 /* ---------- DATE ---------- */
-flatpickr("#dateRange", {
-  mode: "range",
-  minDate: "today",
-  showMonths: 2,
-  onChange(d) {
-    if (d.length === 2) {
-      const nights = (d[1] - d[0]) / 86400000;
-      nightInfo.textContent = nights + " nights stay";
-      nightInfo.style.display = "block";
-    }
-  }
-});
+const nightInfo = document.getElementById("nightInfo");
 
+  flatpickr("#dateRange", {
+    mode: "range",
+    minDate: "today",
+    showMonths: 2,
+    dateFormat: "Y-m-d",
+
+    altInput: true,
+    altFormat: "M j",
+
+    onChange: function(dates, str, instance) {
+      if (dates.length === 2) {
+        const start = dates[0];
+        const end = dates[1];
+
+        const startMonth = start.toLocaleString("en-US", { month: "short" });
+        const endMonth   = end.toLocaleString("en-US", { month: "short" });
+
+        const startText = `${startMonth} ${start.getDate()}`;
+        const endText   = `${endMonth} ${end.getDate()}, ${end.getFullYear()}`;
+
+        instance.altInput.value = `${startText} – ${endText}`;
+
+        const nights =
+          (end - start) / (1000 * 60 * 60 * 24);
+
+        nightInfo.textContent =
+          nights === 1 ? "1 night stay" : nights + " nights stay";
+        nightInfo.style.display = "block";
+      }
+    }
+  });
 /* ---------- GUESTS LOGIC ---------- */
 let adults = 2;
 let children = 0;
