@@ -681,3 +681,337 @@ nav a {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
   object-fit: cover;
 }
+
+
+
+
+
+>------------rooms-----------<
+.rooms-page{
+  padding:100px 0;
+  background:#f4f6f1; /* همان رنگ صفحات قبلی */
+}
+
+.rooms-page-title{
+  text-align:center;
+  font-size:38px;
+  margin-bottom:60px;
+  color:#1f3a2f;
+}
+
+/* ROOM BOX */
+.room-box{
+  max-width:1200px;
+  margin:0 auto 90px;
+  display:flex;
+  gap:60px;
+  align-items:center;
+  padding:0 40px;
+}
+
+/* GALLERY */
+.room-gallery{
+  width:50%;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.room-gallery img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:18px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.room-gallery img:hover{
+  transform:scale(1.05);
+}
+
+/* INFO */
+.room-info{
+  width:50%;
+}
+
+.room-info h3{
+  font-size:30px;
+  margin-bottom:15px;
+  color:#1f3a2f;
+}
+
+.room-info p{
+  line-height:1.7;
+  color:#555;
+  margin-bottom:20px;
+}
+
+.room-details{
+  list-style:none;
+  padding:0;
+  margin-bottom:25px;
+}
+
+.room-details li{
+  margin-bottom:8px;
+  font-size:15px;
+}
+
+/* BUTTON */
+.book-btn{
+  display:inline-block;
+  padding:14px 34px;
+  background:#1f3a2f;
+  color:white;
+  border-radius:30px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.book-btn:hover{
+  background:#2e5b47;
+  transform:translateY(-3px);
+}
+
+
+#lightbox{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.85);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+#lightbox img{
+  max-width:85%;
+  max-height:85%;
+  border-radius:18px;
+}
+
+#close{
+  position:absolute;
+  top:30px;
+  right:40px;
+  font-size:40px;
+  color:white;
+  cursor:pointer;
+}
+
+
+#lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+}
+
+#lightbox-img{
+  max-width:85%;
+  max-height:85%;
+  border-radius:18px;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+
+/* دکمه بستن */
+.close-btn{
+  position:absolute;
+  top:30px;
+  right:40px;
+  font-size:42px;
+  color:white;
+  cursor:pointer;
+  transition:0.2s;
+}
+.close-btn:hover{
+  transform:scale(1.2);
+}
+
+/* فلش ها */
+.nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:55px;
+  color:white;
+  cursor:pointer;
+  padding:12px 18px;
+  user-select:none;
+  transition:0.2s;
+}
+
+.nav:hover{
+  background:rgba(255,255,255,0.15);
+  border-radius:50%;
+}
+
+.prev{ left:40px; }
+.next{ right:40px; }
+
+
+>-----------------------------------------<
+/* ABOUT + CONTACT SECTION */
+.about-contact{
+  padding:110px 0;
+  background:#f4f6f1;
+}
+
+.about-contact-container{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  gap:70px;
+  padding:0 40px;
+  align-items:flex-start;
+}
+
+/* LEFT TEXT */
+.about-left{
+  flex:1;
+}
+
+.about-left h2{
+  font-size:36px;
+  margin-bottom:20px;
+  color:#1f3a2f;
+}
+
+.about-left p{
+  line-height:1.8;
+  color:#555;
+  margin-bottom:18px;
+}
+
+/* RIGHT SIDE */
+.about-right{
+  flex:1;
+  position: relative;
+  top: 100px;
+}
+
+/* MAP */
+.map-box{
+  width:450px;
+  height:350px;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:0 12px 35px rgba(0,0,0,0.15);
+}
+
+.map-box iframe{
+  width:100%;
+  height:100%;
+  border:0;
+}
+
+/* CONTACT INFO */
+.contact-info{
+  margin-top:25px;
+  font-size:15px;
+  color:#333;
+}
+
+.contact-info p{
+  margin-bottom:10px;
+}
+
+.social-links{
+  margin-top:12px;
+}
+
+.social-links a{
+  display:inline-block;
+  margin-right:12px;
+  text-decoration:none;
+  color:#1f3a2f;
+  font-weight:500;
+  transition:0.2s;
+}
+
+.social-links a:hover{
+  color:#2e5b47;
+}
+
+/* CONTACT ICONS */
+.contact-info{
+  margin-top:25px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+.contact-item{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:#1f3a2f;
+  font-size:15px;
+  padding:10px 14px;
+  border-radius:12px;
+  transition:0.25s;
+}
+
+.contact-item i{
+  font-size:18px;
+  width:28px;
+  height:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#e8efe6;
+  border-radius:50%;
+}
+
+/* hover */
+.contact-item:hover{
+  background:#e8efe6;
+  transform:translateX(6px);
+}
+
+.contact-item:hover i{
+  background:#1f3a2f;
+  color:white;
+}
+
+
+
+
+---------->footer<-----------
+
+.footer{
+  background:#1f3a2f;
+  padding:1000px 0;
+}
+
+/* این خط کلید وسط شدن فوتره */
+.footer-container{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  flex-direction:column;
+  align-items:center;   /* 👈 همه چیز رو میاره وسط */
+  gap:12px;
+  color:white;
+  text-align:center;
+}
+
+.footer-socials a{
+  color:white;
+  text-decoration:none;
+  margin:0 10px;
+  transition:0.2s;
+}
+
+.footer-socials a:hover{
+  color:#000000;
+}
+

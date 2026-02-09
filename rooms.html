@@ -6,22 +6,230 @@
 </head>
 <body>
 
+<header>
+  <nav>
+
+    <a href="index.html">
+      <span class="nav-icon icon-home">
+        <!-- HOME ICON -->
+        <svg viewBox="0 0 24 24">
+          <path d="M3 10.5L12 3l9 7.5"></path>
+          <path d="M5 10v9h5v-5h4v5h5v-9"></path>
+        </svg>
+      </span>
+      Home
+    </a>
+
+    <a href="booking.html" class="book">
+      <span class="nav-icon icon-book">
+        <!-- CALENDAR ICON -->
+        <svg viewBox="0 0 24 24">
+          <rect x="3" y="4" width="18" height="18" rx="3"></rect>
+          <line x1="16" y1="2" x2="16" y2="6"></line>
+          <line x1="8" y1="2" x2="8" y2="6"></line>
+          <line x1="3" y1="10" x2="21" y2="10"></line>
+        </svg>
+      </span>
+      Book Now
+    </a>
+
+  </nav>
+
+  <div class="logo">
+    <img src="images/logo.png" alt="Green Palace Logo">
+  </div>
+</header>
+
 <section class="section">
-  <h2>Rooms & Suites</h2>
-  <div class="cards">
-    <div class="card">
-      <img src="images/room1.jpg">
-      <h3>Standard Room</h3>
-      <p>Ideal for couples seeking comfort and simplicity.</p>
+ <section class="rooms-page">
+
+  <h2 class="rooms-page-title">Our Rooms</h2>
+
+  <!-- ROOM1 -->
+  <div class="room-box">
+
+    <!-- GALLERY -->
+    <div class="room-gallery">
+      <img src="images/room1-1.jpg" class="gallery-img">
+      <img src="images/room1-2.jpg" class="gallery-img">
+      <img src="images/room1-3.jpg" class="gallery-img">
+      <img src="images/room1-4.jpg" class="gallery-img">
     </div>
 
-    <div class="card">
-      <img src="images/room2.jpg">
-      <h3>Family Room</h3>
-      <p>Spacious accommodation for families.</p>
+    <!-- INFO -->
+    <div class="room-info">
+      <h3>Standard Room</h3>
+
+      <p>
+       The Standard Room at Green Palace is designed for couples and guests seeking comfort, privacy, and a peaceful connection with nature.
+This room offers a warm and inviting atmosphere, featuring natural materials, soft lighting, and thoughtfully selected details that create a sense of calm and relaxation. Large windows allow natural light to fill the space while offering serene views of the surrounding greenery.
+
+Perfect for short stays or romantic getaways, the Standard Room combines simplicity with elegance, providing everything guests need for a comfortable and memorable experience immersed in the tranquil spirit of Green Palace.
+      </p>
+
+      <ul class="room-details">
+        <li>👥 2 Guests</li>
+        <li>🛏 Queen Bed</li>
+        <li>🌿 Garden View</li>
+        
+      </ul>
+
+      <a href="booking.html" class="book-btn">Book This Room</a>
     </div>
+
   </div>
 </section>
 
+<!-- ROOM2 -->
+  <div class="room-box">
+
+    <!-- GALLERY -->
+    <div class="room-gallery">
+      <img src="images/room2-1.jpg" class="gallery-img">
+      <img src="images/room2-2.jpg" class="gallery-img">
+      <img src="images/room2-3.jpg" class="gallery-img">
+      <img src="images/room2-4.jpg" class="gallery-img">
+    </div>
+
+    <!-- INFO -->
+    <div class="room-info">
+      <h3>Family Room</h3>
+
+      <p>
+      The Family Room at Green Palace is thoughtfully designed for families who value space, comfort, and quality time together.
+With a spacious layout and carefully arranged sleeping areas, this room comfortably accommodates two adults and two children, ensuring privacy and ease for every family member. Natural materials, warm colors, and soft lighting create a welcoming atmosphere that feels both relaxing and practical.
+
+Large windows bring in abundant natural light and offer calming views of the surrounding landscape, allowing families to stay connected to nature throughout their visit. The Family Room is an ideal choice for guests seeking a peaceful, family-friendly stay where comfort, functionality, and a sense of home come together in harmony.
+      </p>
+
+      <ul class="room-details">
+        <li>👥 2 Guests / 2 Childs</li>
+        <li>🛏 1 Queen Bed / 2 Normal Beds</li>
+        <li>🌿 Garden View</li>
+        
+      </ul>
+
+      <a href="booking.html" class="book-btn">Book This Room</a>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ROOM3 -->
+  <div class="room-box">
+
+    <!-- GALLERY -->
+    <div class="room-gallery">
+      <img src="images/room3-1.jpg" class="gallery-img">
+      <img src="images/room3-2.jpg" class="gallery-img">
+      <img src="images/room3-3.jpg" class="gallery-img">
+      <img src="images/room3-4.jpg" class="gallery-img">
+    </div>
+
+    <!-- INFO -->
+    <div class="room-info">
+      <h3>Deluxe Suite</h3>
+
+      <p>
+      The Deluxe Suite at Green Palace is designed for guests seeking spaciousness, privacy, and an elevated level of comfort.
+With generous interiors and carefully separated living and sleeping areas, this suite comfortably accommodates up to four adults and four children, making it ideal for larger families or group stays. The design combines natural wooden elements, refined furnishings, and soft lighting to create a sophisticated yet warm atmosphere.
+
+Large panoramic windows open the space to breathtaking views of the surrounding landscape, allowing nature to become an integral part of the stay. The Deluxe Suite offers a premium experience where luxury, tranquility, and connection to nature come together, providing guests with a memorable and truly exclusive retreat
+      </p>
+
+      <ul class="room-details">
+        <li>👥 4 Guests / 4 Childs</li>
+        <li>🛏 2 Queen Bed / 4 Normal Beds</li>
+        <li>🌿 Garden View</li>
+        
+      </ul>
+
+      <a href="booking.html" class="book-btn">Book This Room</a>
+    </div>
+
+  </div>
+</section>
+
+
+<div id="lightbox">
+  <span class="close-btn">&times;</span>
+
+  <span class="nav prev">&#10094;</span>
+  <img id="lightbox-img">
+  <span class="nav next">&#10095;</span>
+
+</div>
+
+
+
 </body>
 </html>
+
+
+
+
+<script>
+const images = document.querySelectorAll(".gallery-img");
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = document.getElementById("lightbox-img");
+const closeBtn = document.querySelector(".close-btn");
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+
+let currentIndex = 0;
+let galleryArray = [];
+
+/* باز کردن مودال */
+images.forEach((img, index)=>{
+  img.addEventListener("click", ()=>{
+    galleryArray = Array.from(img.parentElement.querySelectorAll(".gallery-img"));
+    currentIndex = galleryArray.indexOf(img);
+
+    showImage();
+    lightbox.style.display="flex";
+  });
+});
+
+function showImage(){
+  lightboxImg.src = galleryArray[currentIndex].src;
+}
+
+/* فلش راست */
+nextBtn.onclick = ()=>{
+  currentIndex++;
+  if(currentIndex >= galleryArray.length){
+    currentIndex = 0;
+  }
+  showImage();
+};
+
+/* فلش چپ */
+prevBtn.onclick = ()=>{
+  currentIndex--;
+  if(currentIndex < 0){
+    currentIndex = galleryArray.length - 1;
+  }
+  showImage();
+};
+
+/* بستن */
+closeBtn.onclick = ()=> lightbox.style.display="none";
+
+/* کلیک بیرون عکس */
+lightbox.onclick = (e)=>{
+  if(e.target === lightbox){
+    lightbox.style.display="none";
+  }
+};
+
+/* کیبورد */
+document.addEventListener("keydown",(e)=>{
+  if(lightbox.style.display === "flex"){
+    if(e.key === "ArrowRight") nextBtn.click();
+    if(e.key === "ArrowLeft") prevBtn.click();
+    if(e.key === "Escape") lightbox.style.display="none";
+  }
+});
+</script>
+
